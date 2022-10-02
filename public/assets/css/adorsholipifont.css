@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'AdorshoLipi';
+    src: url('../webfonts/AdorshoLipi.eot');
+    src: url('../webfonts/AdorshoLipi.woff') format('woff'), url('../webfonts/AdorshoLipi.ttf') format('truetype'), url('../webfonts/AdorshoLipi.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
