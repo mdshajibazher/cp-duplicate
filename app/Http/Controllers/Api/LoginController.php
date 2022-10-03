@@ -18,12 +18,10 @@ class LoginController extends Controller
         ]);
         if( $admin = Admin::where('phone',$request->email_or_phone)->first()){
             if($admin->status == 0){
-                return response()->json(['error'=> 'user currently disabled contact administrator for activation'],403);
+                abort('401','user currently disabled contact administrator for activation');
             }else{
                 if (! $admin || ! Hash::check($request->password, $admin->password)) {
-                    throw ValidationException::withMessages([
-                        'email_or_phone' => ['The provided credentials are incorrect.'],
-                    ]);
+                    abort('401','The provided credentials are incorrect.');
                 }else{
                     $token = $admin->createToken('admin_token');
                     return ['token' => $token];
