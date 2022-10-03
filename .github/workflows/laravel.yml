@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Deploy to server
+      uses: appleboy/ssh-action@master
+      with: 
+            username: root
+            host: "52.66.204.70"
+            password: "pappu786"
+            script: 'cd /var/www/cp && ./deployer.sh'
+
