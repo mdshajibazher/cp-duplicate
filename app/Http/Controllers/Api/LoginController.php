@@ -24,7 +24,7 @@ class LoginController extends Controller
                     abort('401','The provided credentials are incorrect.');
                 }else{
                     $token = $admin->createToken('admin_token');
-                    return ['token' => $token];
+                    return ['token_object' => $token];
                 }
 
             }
