@@ -10,7 +10,7 @@ use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
-    public function login(Request $request)
+    public function Login(Request $request)
     {
         $this->validate($request, [
             'email_or_phone' => 'required',

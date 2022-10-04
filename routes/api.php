@@ -38,7 +38,7 @@ Route::get('gettaglist', 'Api\ApiInformationController@getTagList')->name('tagli
 Route::get('get_product_types_list', 'Api\ApiInformationController@getProductTypesList')->name('product_types_list');
 Route::get('getsizelist', 'Api\ApiInformationController@getSizeList')->name('sizelist');
 
-Route::post('/login','Api\LoginController@login');
+Route::post('/login','Api\LoginController@Login');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return Auth::user()->roles;
