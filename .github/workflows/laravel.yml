@@ -13,7 +13,7 @@ jobs:
     - name: Deploy to server
       uses: appleboy/ssh-action@master
       with: 
-            username: root
+            username: ubuntu
             host: "52.66.204.70"
             password: "pappu786"
             script: 'cd /var/www/cp && ./deployer.sh'
