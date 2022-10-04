@@ -11,22 +11,23 @@ use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
-    public function login(Request $request){
-        $this->validate($request,[
+    public function login(Request $request)
+    {
+        $this->validate($request, [
             'email_or_phone' => 'required',
-            'password'       => 'required'
+            'password' => 'required'
         ]);
-        if( $admin = Admin::where('phone',$request->email_or_phone)->first()){
-            if($admin->status == 0){
+        if ($admin = Admin::where('phone', $request->email_or_phone)->first()) {
+            if ($admin->status == 0) {
                 throw ValidationException::withMessages([
                     'message' => ['User currently disabled contact administrator for activation'],
                 ]);
-            }else{
-                if (! $admin || ! Hash::check($request->password, $admin->password)) {
+            } else {
+                if (!$admin || !Hash::check($request->password, $admin->password)) {
                     throw ValidationException::withMessages([
                         'message' => ['The provided credentials are incorrect'],
                     ]);
-                }else{
+                } else {
                     $token = $admin->createToken('admin_token');
                     return ['token_object' => $token];
                 }
