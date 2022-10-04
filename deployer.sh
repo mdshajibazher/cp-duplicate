@@ -2,7 +2,7 @@ set -e
 
 echo "Deploying application..."
 
-(php artisan down --message 'Updating please wait')
+(php artisan down --message 'Updating site please wait')
 
 git pull origin master
 
