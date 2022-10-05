@@ -28,7 +28,7 @@ class LoginController extends Controller
                     ]);
                 } else {
                     $token = $admin->createToken('admin_token');
-                    return ['token_object' => $token];
+                    return ['token_object' => $token, 'user' => $admin];
                 }
 
             }
