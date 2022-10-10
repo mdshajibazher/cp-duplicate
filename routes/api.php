@@ -39,9 +39,15 @@ Route::get('getsizelist', 'Api\ApiInformationController@getSizeList')->name('siz
 
 Route::post('/login','Api\LoginController@Login');
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return Auth::user()->roles;
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/admin_permissions', function (Request $request) {
+        return Auth::user()->getAllPermissions()->pluck('name');
+    });
+    Route::get('/dashboard','Api\DashboardController@getDashboardData');
+    Route::apiResource('sales','Api\SalesController');
 });
+
 
 
 
