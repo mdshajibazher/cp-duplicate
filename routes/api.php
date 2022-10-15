@@ -36,10 +36,7 @@ Route::get('getcategorylist', 'Api\ApiInformationController@getCategoryList')->n
 Route::get('gettaglist', 'Api\ApiInformationController@getTagList')->name('taglist');
 Route::get('get_product_types_list', 'Api\ApiInformationController@getProductTypesList')->name('product_types_list');
 Route::get('getsizelist', 'Api\ApiInformationController@getSizeList')->name('sizelist');
-
 Route::post('/login','Api\LoginController@Login');
-
-
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/admin_permissions', function (Request $request) {
         return Auth::user()->getAllPermissions()->pluck('name');
