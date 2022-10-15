@@ -14,7 +14,7 @@ jobs:
       uses: appleboy/ssh-action@master
       with: 
             username: ubuntu
-            host: "52.66.204.70"
-            password: "pappu786"
+            host: ${{ secrets.CP_SERVER_IP }}
+            password: ${{ secrets.CP_PASS }}
             script: 'cd /var/www/cp && ./deployer.sh'
 
